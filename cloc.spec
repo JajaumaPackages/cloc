@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.56
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -39,6 +39,9 @@ install -D -m 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
 
 %changelog
+* Wed Feb 13 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.56-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.56-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
