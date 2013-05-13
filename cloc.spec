@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.58
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -9,7 +9,7 @@ URL:            http://cloc.sourceforge.net/
 
 Source0:         http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/cloc-%{version}.tar.gz
 BuildArch:      noarch
-BuildRequires:  perl-podlators
+BuildRequires:  /usr/bin/pod2man
 BuildRequires:  perl(Pod::Checker)
 Requires:       perl
 Requires:       perl(Regexp::Common)
@@ -34,6 +34,9 @@ make install DESTDIR=%{buildroot}
 /usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Mon May 13 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-3
+- Refer to pod2man BR by path, the package name varies.
+
 * Mon May 13 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-2
 - Use the tarball release instead.
 - Fix license field.
