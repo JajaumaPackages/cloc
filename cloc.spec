@@ -9,7 +9,8 @@ URL:            http://cloc.sourceforge.net/
 
 Source0:         http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/cloc-%{version}.tar.gz
 BuildArch:      noarch
-BuildRequires:  /usr/bin/pod2man
+BuildRequires:  perl-podlators
+BuildRequires:  perl(Pod::Checker)
 Requires:       perl
 Requires:       perl(Regexp::Common)
 Requires:       perl(Algorithm::Diff)
