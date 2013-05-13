@@ -1,6 +1,6 @@
 Name:           cloc
-Version:        1.56
-Release:        7%{?dist}
+Version:        1.58
+Release:        1%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -39,6 +39,9 @@ install -D -m 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
 
 
 %changelog
+* Mon May 13 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-1
+- Latest upstream release.
+
 * Wed Feb 13 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.56-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
