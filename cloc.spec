@@ -1,15 +1,13 @@
 Name:           cloc
 Version:        1.58
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
-License:        GPLv2+
+License:        GPLv2 and Artistic
 URL:            http://cloc.sourceforge.net/
 
-Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/%{name}-%{version}.pl
-Source1:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/%{name}.1.pod
-Source2:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/release-%{version}.txt
+Source0:         http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/cloc-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  /usr/bin/pod2man
 Requires:       perl
@@ -23,22 +21,22 @@ Requires:       perl(Algorithm::Diff)
 A tool to count lines of code in various languages from a given directory.
 
 %prep
+%setup -q -c
 
 %build
-pod2man %{SOURCE1} > %{name}.1
-cp %{SOURCE2} release-%{version}.txt
 
 %install
-install -D -m 0755 %{SOURCE0} %{buildroot}/%{_bindir}/%{name}
-install -D -m 0644 %{name}.1 %{buildroot}/%{_mandir}/man1/%{name}.1
+make install DESTDIR=%{buildroot}
 
 %files
-%doc release-%{version}.txt
-%{_mandir}/man1/%{name}.1*
 %{_bindir}/%{name}
-
+/usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Mon May 13 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-2
+- Use the tarball release instead.
+- Fix license field.
+
 * Mon May 13 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-1
 - Latest upstream release.
 
