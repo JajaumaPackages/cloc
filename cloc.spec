@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.58
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -16,6 +16,7 @@ Requires:       perl(Regexp::Common)
 Requires:       perl(Algorithm::Diff)
 # Stop trying to find the optional Win32::File dep.
 %filter_from_requires /perl(Win32::File)/d;
+%filter_setup
 %{?perl_default_filter}
 
 %description
@@ -34,6 +35,9 @@ make install DESTDIR=%{buildroot}
 /usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Tue May 14 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-4
+- Enable the requires filter. (bz #962783)
+
 * Mon May 13 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-3
 - Refer to pod2man BR by path, the package name varies.
 
