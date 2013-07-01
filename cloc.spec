@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.58
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -35,6 +35,9 @@ make install DESTDIR=%{buildroot}
 /usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Mon Jul 1 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-5
+- Rebuild on Rawhide for bz #927211.
+
 * Tue May 14 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-4
 - Enable the requires filter. (bz #962783)
 
