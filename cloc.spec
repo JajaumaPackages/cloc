@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.58
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -35,6 +35,9 @@ make install DESTDIR=%{buildroot}
 /usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Wed Jul 17 2013 Petr Pisar <ppisar@redhat.com> - 1.58-6
+- Perl 5.18 rebuild
+
 * Mon Jul 1 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.58-5
 - Rebuild on Rawhide for bz #927211.
 
