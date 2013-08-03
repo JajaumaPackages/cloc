@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.58
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -35,6 +35,9 @@ make install DESTDIR=%{buildroot}
 /usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.58-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
 * Wed Jul 17 2013 Petr Pisar <ppisar@redhat.com> - 1.58-6
 - Perl 5.18 rebuild
 
