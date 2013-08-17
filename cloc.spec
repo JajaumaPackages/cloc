@@ -23,7 +23,7 @@ Requires:       perl(Algorithm::Diff)
 A tool to count lines of code in various languages from a given directory.
 
 %prep
-%setup -q -c
+%setup -q
 
 %build
 
@@ -37,6 +37,8 @@ make install DESTDIR=%{buildroot}
 %changelog
 * Sat Aug 17 2013 Ricky Elrod <codeblock@fedoraproject.org> - 1.60-1
 - Update to upstream 1.60.
+- Don't create a directory in %%setup.
+- Fix rpmlint warning.
 
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.58-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
@@ -67,7 +69,7 @@ make install DESTDIR=%{buildroot}
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
 * Thu Jun 14 2012 Ricky Elrod <codeblock@fedoraproject.org> - 1.56-5
-- Remove the %clean section altogether.
+- Remove the %%clean section altogether.
 
 * Thu Jun 14 2012 Ricky Elrod <codeblock@fedoraproject.org> - 1.56-4
 - Remove specfile actions that are no longer needed for post-EL5.
