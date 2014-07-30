@@ -1,6 +1,6 @@
 Name:           cloc
-Version:        1.60
-Release:        2%{?dist}
+Version:        1.62
+Release:        1%{?dist}
 Summary:        Count lines of code
 
 Group:          Development/Tools
@@ -35,6 +35,9 @@ make install DESTDIR=%{buildroot}
 /usr/share/man/man1/%{name}.1.*
 
 %changelog
+* Wed Jul 30 2014 Ricky Elrod <relrod@redhat.com> - 1.62-1
+- Update to upstream 1.62.
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.60-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
