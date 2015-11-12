@@ -1,22 +1,37 @@
 Name:           cloc
-Version:        1.62
-Release:        2%{?dist}
+Version:        1.64
+Release:        1%{?dist}
 Summary:        Count lines of code
-
 Group:          Development/Tools
 License:        GPLv2 and Artistic
-URL:            http://cloc.sourceforge.net/
-
-Source0:         http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/cloc-%{version}.tar.gz
+URL:            http://%{name}.sourceforge.net/
+Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/%{name}-%{version}.tar.gz
+# SF bug#135
+Patch0:         %{name}-1.64-Update-the-deprecated-code-for-perl-5.22.patch
 BuildArch:      noarch
-BuildRequires:  /usr/bin/pod2man
-BuildRequires:  perl(Pod::Checker)
-Requires:       perl
-Requires:       perl(Regexp::Common)
-Requires:       perl(Algorithm::Diff)
-# Stop trying to find the optional Win32::File dep.
-%filter_from_requires /perl(Win32::File)/d;
-%filter_setup
+# Build
+BuildRequires:  coreutils
+BuildRequires:  make
+BuildRequires:  perl-podlators
+# Runtime
+BuildRequires:  perl(Cwd)
+BuildRequires:  perl(File::Basename)
+BuildRequires:  perl(File::Find)
+BuildRequires:  perl(File::Glob)
+BuildRequires:  perl(File::Path)
+BuildRequires:  perl(File::Spec)
+BuildRequires:  perl(File::Temp)
+BuildRequires:  perl(Getopt::Long)
+BuildRequires:  perl(IO::File)
+BuildRequires:  perl(POSIX)
+BuildRequires:  perl(strict)
+BuildRequires:  perl(Text::Tabs)
+BuildRequires:  perl(warnings)
+# Tests only
+BuildRequires:  perl
+BuildRequires:  perl-Pod-Checker
+Requires:       perl(:MODULE_COMPAT_%(eval "$(perl -V:version)"; echo $version))
+
 %{?perl_default_filter}
 
 %description
@@ -24,17 +39,35 @@ A tool to count lines of code in various languages from a given directory.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+# Nothing to do but run make anyway, in case anything ever changes
+make %{_smp_mflags}
 
 %install
-make install DESTDIR=%{buildroot}
+make install DESTDIR="%{buildroot}"
+
+%check
+make test
 
 %files
+%license COPYING
+%doc AUTHORS NEWS README
 %{_bindir}/%{name}
-/usr/share/man/man1/%{name}.1.*
+%{_mandir}/man1/%{name}.1*
 
 %changelog
+* Thu Nov 12 2015 Petr Šabata <contyk@redhat.com> - 1.64-1
+- 1.64 bump, rhbz#1236347
+- Fix the deprecated code issue, sf bug#135, rhbz#1239400, rhbz#1271897
+- Modernize and cleanup the spec file
+- Package the docs and the license text
+- Run the tests
+- Fix the dep list
+- Add perl MODULE_COMPAT
+- Simplify the filters
+
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.62-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
