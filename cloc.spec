@@ -1,13 +1,13 @@
 Name:           cloc
 Version:        1.64
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
-License:        GPLv2 and Artistic
+License:        GPLv2 and BSD and MIT
 URL:            http://%{name}.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/%{name}-%{version}.tar.gz
-# SF bug#135
-Patch0:         %{name}-1.64-Update-the-deprecated-code-for-perl-5.22.patch
+# SF bug#135 is also fixed here:
+Patch1:         update-regex-common.patch
 BuildArch:      noarch
 # Build
 BuildRequires:  coreutils
@@ -39,7 +39,7 @@ A tool to count lines of code in various languages from a given directory.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch1 -p1
 
 %build
 # Nothing to do but run make anyway, in case anything ever changes
@@ -58,6 +58,10 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Thu Jan 21 2016 Ricky Elrod <relrod@redhat.com> - 1.64-2
+- Update bundled Regexp::Common for licensing issue (rhbz#1281479)
+- (To do the above) Backport upstream commit 157c370.
+
 * Thu Nov 12 2015 Petr Šabata <contyk@redhat.com> - 1.64-1
 - 1.64 bump, rhbz#1236347
 - Fix the deprecated code issue, sf bug#135, rhbz#1239400, rhbz#1271897
