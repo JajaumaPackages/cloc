@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.64
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2 and BSD and MIT
@@ -58,6 +58,9 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Sat May 14 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.64-4
+- Perl 5.24 rebuild
+
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.64-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
