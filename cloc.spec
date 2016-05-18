@@ -27,6 +27,7 @@ BuildRequires:  perl(POSIX)
 BuildRequires:  perl(Regexp::Common)
 BuildRequires:  perl(strict)
 BuildRequires:  perl(Text::Tabs)
+BuildRequires:  perl(Time::HiRes)
 BuildRequires:  perl(warnings)
 # Tests only
 BuildRequires:  perl
