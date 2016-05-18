@@ -53,8 +53,8 @@ make install DESTDIR="%{buildroot}"
 make test
 
 %files
-%license LICENSE
-%doc README.md Unix/AUTHROS Unix/COPYING Unix/NEWS Unix/README
+%license COPYING
+%doc AUTHORS NEWS README
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
