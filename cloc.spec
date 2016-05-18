@@ -59,7 +59,7 @@ make test
 
 %changelog
 * Wed May 18 2016 Ricky Elrod <relrod@redhat.com> - 1.66-1
-- Bump to 1.66 with unbundled code (rhbz#1281479)
+- Bump to 1.66 with unbundled code (rhbz#1281479, rhbz#1324715, rhbz#1324791)
 
 * Sat May 14 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.64-4
 - Perl 5.24 rebuild
