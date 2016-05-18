@@ -1,13 +1,11 @@
 Name:           cloc
-Version:        1.64
-Release:        4%{?dist}
+Version:        1.66
+Release:        1%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
-License:        GPLv2 and BSD and MIT
+License:        GPLv2+
 URL:            http://%{name}.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/%{name}-%{version}.tar.gz
-# SF bug#135 is also fixed here:
-Patch1:         update-regex-common.patch
 BuildArch:      noarch
 # Build
 BuildRequires:  coreutils
@@ -38,8 +36,7 @@ Requires:       perl(:MODULE_COMPAT_%(eval "$(perl -V:version)"; echo $version))
 A tool to count lines of code in various languages from a given directory.
 
 %prep
-%setup -q
-%patch1 -p1
+%setup -q -n Unix
 
 %build
 # Nothing to do but run make anyway, in case anything ever changes
@@ -52,12 +49,15 @@ make install DESTDIR="%{buildroot}"
 make test
 
 %files
-%license COPYING
-%doc AUTHORS NEWS README
+%license LICENSE
+%doc README.md Unix/AUTHROS Unix/COPYING Unix/NEWS Unix/README
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed May 18 2016 Ricky Elrod <relrod@redhat.com> - 1.66-1
+- Bump to 1.66 with unbundled code (rhbz#1281479)
+
 * Sat May 14 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.64-4
 - Perl 5.24 rebuild
 
