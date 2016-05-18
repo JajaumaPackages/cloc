@@ -36,7 +36,7 @@ Requires:       perl(:MODULE_COMPAT_%(eval "$(perl -V:version)"; echo $version))
 A tool to count lines of code in various languages from a given directory.
 
 %prep
-%setup -q -n Unix
+%setup -q -n %{name}-%{version}/Unix
 
 %build
 # Nothing to do but run make anyway, in case anything ever changes
