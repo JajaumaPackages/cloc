@@ -12,7 +12,9 @@ BuildRequires:  coreutils
 BuildRequires:  make
 BuildRequires:  perl-podlators
 # Runtime
+BuildRequires:  perl(Algorithm::Diff)
 BuildRequires:  perl(Cwd)
+BuildRequires:  perl(Digest::MD5)
 BuildRequires:  perl(File::Basename)
 BuildRequires:  perl(File::Find)
 BuildRequires:  perl(File::Glob)
@@ -22,6 +24,7 @@ BuildRequires:  perl(File::Temp)
 BuildRequires:  perl(Getopt::Long)
 BuildRequires:  perl(IO::File)
 BuildRequires:  perl(POSIX)
+BuildRequires:  perl(Regexp::Common)
 BuildRequires:  perl(strict)
 BuildRequires:  perl(Text::Tabs)
 BuildRequires:  perl(warnings)
