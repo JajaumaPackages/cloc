@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.66
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -59,6 +59,9 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Thu May 19 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.66-2
+- Perl 5.24 re-rebuild of bootstrapped packages
+
 * Wed May 18 2016 Ricky Elrod <relrod@redhat.com> - 1.66-1
 - Bump to 1.66 with unbundled code (rhbz#1281479, rhbz#1324715, rhbz#1324791)
 
