@@ -1,0 +1,40 @@
+--- cloc.orig	2016-06-21 06:14:31.917728128 -0400
++++ cloc	2016-06-21 06:53:46.014670444 -0400
+@@ -7493,27 +7493,27 @@
+         push @{$raa_errors}, [$rh_Err->{'Unable to read'} , $file];
+         return $lang;
+     }
+-    my $perl_points = 0;
++    my $p = 0;
+     my $prolog_points = 0;
+     while (<$IN>) {
+-        ++$perl_points if  /;\s*$/;
+-        ++$perl_points if  /({|})/;
+-        ++$perl_points if  /^\s*sub\s+/;
+-        ++$perl_points if  /\s*<<'/;  # start HERE block
+-        ++$perl_points if  /\$(\w+\->|[_!])/;
+-        ++$prolog_points if !/\s*#/ and /\.\s*$/;
+-        ++$prolog_points if /:-/;
++        ++$p if  /;\s*$/;
++        ++$p if  /({|})/;
++        ++$p if  /^\s*sub\s+/;
++        ++$p if  /\s*<<'/;  # start HERE block
++        ++$p if  /\$(\w+\->|[_!])/;
++        ++$p if !/\s*#/ and /\.\s*$/;
++        ++$p if /:-/;
+     }
+     $IN->close;
+     # print "perl_points=$perl_points   prolog_points=$prolog_points\n";
+-    if ($perl_points > $prolog_points) {
++    if ($p > $prolog_points) {
+         $lang = "Perl";
+     } else {
+         $lang = "Prolog";
+     }
+ 
+     printf "<- Perl_or_Prolog(%s, Perl=%d Prolog=%d)\n",
+-        $file, $perl_points, $prolog_points if $opt_v > 2;
++        $file, $p, $prolog_points if $opt_v > 2;
+     return $lang;
+ } # 1}}}
+ sub IDL_or_QtProject {                       # {{{1

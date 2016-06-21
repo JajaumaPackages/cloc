@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.68
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -35,6 +35,8 @@ BuildRequires:  perl-Pod-Checker
 BuildRequires:  perl(Test::More)
 Requires:       perl(:MODULE_COMPAT_%(eval "$(perl -V:version)"; echo $version))
 
+Patch0:         cloc-perl.req.patch
+
 %{?perl_default_filter}
 
 %description
@@ -42,6 +44,14 @@ A tool to count lines of code in various languages from a given directory.
 
 %prep
 %setup -q -n %{name}-%{version}/Unix
+
+# < relrod> I found a bug in perl.req while trying to update a package I
+# maintain (which is causing the build to completely hang/not finish, at least
+# for a very long time)... This is the simplest reproducer I could come up
+# with: https://gist.github.com/relrod/4ee22e8ae13486d91fb580aafb188a45
+# < relrod> Notice how the execution time changes drastically when the only
+# change in the source it's scanning is the length of a variable name.
+%patch0
 
 %build
 # Nothing to do but run make anyway, in case anything ever changes
@@ -60,6 +70,9 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Tue Jun 21 2016 Ricky Elrod <relrod@redhat.com> - 1.68-2
+- Patch around perl.req bug.
+
 * Tue Jun 21 2016 Ricky Elrod <relrod@redhat.com> - 1.68-1
 - Latest release.
 
