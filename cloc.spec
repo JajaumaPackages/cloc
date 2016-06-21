@@ -1,11 +1,11 @@
 Name:           cloc
-Version:        1.66
-Release:        2%{?dist}
+Version:        1.68
+Release:        1%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
-URL:            http://%{name}.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/v%{version}/%{name}-%{version}.tar.gz
+URL:            https://github.com/AlDanial/cloc
+Source0:        https://github.com/AlDanial/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 # Build
 BuildRequires:  coreutils
@@ -59,6 +59,9 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Tue Jun 21 2016 Ricky Elrod <relrod@redhat.com> - 1.68-1
+- Latest release.
+
 * Thu May 19 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.66-2
 - Perl 5.24 re-rebuild of bootstrapped packages
 
