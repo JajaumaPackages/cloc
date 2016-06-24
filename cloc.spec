@@ -10,6 +10,7 @@ BuildArch:      noarch
 # Build
 BuildRequires:  coreutils
 BuildRequires:  make
+BuildRequires:  perl-generators
 BuildRequires:  perl-podlators
 # Runtime
 BuildRequires:  perl(Algorithm::Diff)
