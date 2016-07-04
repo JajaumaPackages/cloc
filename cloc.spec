@@ -1,6 +1,6 @@
 Name:           cloc
-Version:        1.68
-Release:        2%{?dist}
+Version:        1.70
+Release:        1%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -70,6 +70,9 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Mon Jul 04 2016 Ricky Elrod <relrod@redhat.com> - 1.70-1
+- Latest release.
+
 * Tue Jun 21 2016 Ricky Elrod <relrod@redhat.com> - 1.68-2
 - Patch around perl.req bug.
 
