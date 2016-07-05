@@ -10,7 +10,9 @@ BuildArch:      noarch
 # Build
 BuildRequires:  coreutils
 BuildRequires:  make
+%if 0%{?fedora}
 BuildRequires:  perl-generators
+%endif
 BuildRequires:  perl-podlators
 # Runtime
 BuildRequires:  perl(Algorithm::Diff)
