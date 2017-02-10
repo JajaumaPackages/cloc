@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.70
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -73,6 +73,9 @@ make test
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.70-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Mon Jul 04 2016 Ricky Elrod <relrod@redhat.com> - 1.70-1
 - Latest release.
 
