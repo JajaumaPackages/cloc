@@ -36,6 +36,7 @@ BuildRequires:  perl(warnings)
 BuildRequires:  perl
 BuildRequires:  perl-Pod-Checker
 BuildRequires:  perl(Test::More)
+BuildRequires:  git
 Requires:       perl(:MODULE_COMPAT_%(eval "$(perl -V:version)"; echo $version))
 
 Patch0:         cloc-perl.req.patch
@@ -74,6 +75,7 @@ make test
 
 %changelog
 * Thu May 11 2017 Ricky Elrod <relrod@redhat.com> - 1.72-1
+- Add git dependency for tests.
 - Latest release.
 
 * Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.70-2
