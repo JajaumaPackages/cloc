@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.72
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -73,6 +73,9 @@ make install DESTDIR="%{buildroot}"
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Mon Jun 05 2017 Jitka Plesnikova <jplesnik@redhat.com> - 1.72-2
+- Perl 5.26 rebuild
+
 * Thu May 11 2017 Ricky Elrod <relrod@redhat.com> - 1.72-1
 - Disable tests for now, they depend on the cloc git repo for some reason.
 - Latest release.
