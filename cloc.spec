@@ -33,7 +33,7 @@ BuildRequires:  perl(Text::Tabs)
 BuildRequires:  perl(Time::HiRes)
 BuildRequires:  perl(warnings)
 # Tests only
-BuildRequires:  perl
+BuildRequires:  perl-interpreter
 BuildRequires:  perl-Pod-Checker
 BuildRequires:  perl(Test::More)
 Requires:       perl(:MODULE_COMPAT_%(eval "$(perl -V:version)"; echo $version))
