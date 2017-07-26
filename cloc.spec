@@ -1,6 +1,6 @@
 Name:           cloc
 Version:        1.72
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -73,6 +73,9 @@ make install DESTDIR="%{buildroot}"
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.72-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Mon Jun 05 2017 Jitka Plesnikova <jplesnik@redhat.com> - 1.72-2
 - Perl 5.26 rebuild
 
