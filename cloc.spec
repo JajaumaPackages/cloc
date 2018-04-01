@@ -1,6 +1,6 @@
 Name:           cloc
-Version:        1.72
-Release:        4%{?dist}
+Version:        1.76
+Release:        1%{?dist}
 Summary:        Count lines of code
 Group:          Development/Tools
 License:        GPLv2+
@@ -32,6 +32,7 @@ BuildRequires:  perl(strict)
 BuildRequires:  perl(Text::Tabs)
 BuildRequires:  perl(Time::HiRes)
 BuildRequires:  perl(warnings)
+BuildRequires:  perl(Parallel::ForkManager)
 # Tests only
 BuildRequires:  perl-interpreter
 BuildRequires:  perl-Pod-Checker
@@ -73,6 +74,10 @@ make install DESTDIR="%{buildroot}"
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Sun Apr 01 2018 Jajauma's Packages <jajauma@yandex.ru> - 1.76-1
+- Update to 1.76
+- Require Parallel::ForkManager
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.72-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
